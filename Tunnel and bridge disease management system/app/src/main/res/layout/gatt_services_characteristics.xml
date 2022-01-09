@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp">
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/label_device_address"
+                          android:textSize="12sp"/>
+                <TextView android:id="@+id/device_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/label_state"
+                          android:textSize="12sp"/>
+                <TextView android:id="@+id/connection_state"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="@string/disconnected"
+                          android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/label_data"
+                          android:textSize="12sp"/>
+                <TextView android:id="@+id/data_value"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="@string/no_data"
+                          android:textSize="12sp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+
+            <LinearLayout android:orientation="horizontal"
+                android:layout_width="322dp"
+                android:layout_height="34dp"
+                android:id="@+id/layoutCali"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal">
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加计校准"
+                        android:id="@+id/btnAccCali"
+                        android:textSize="12sp"
+                        android:onClick="onClickAccCali"/>
+                <Space android:layout_width="5dp"
+                    android:layout_height="wrap_content"/>
+                <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加计校准L"
+                android:id="@+id/btnAccCaliL"
+                android:textSize="12sp"
+                android:onClick="onClickAccCaliL"/>
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加计校准R"
+                        android:id="@+id/btnAccCaliR"
+                        android:textSize="12sp"
+                        android:onClick="onClickAccCaliR"/>
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="我的位置"/>
+
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal"
+                android:layout_width="355dp"
+                android:layout_height="35dp"
+                android:id="@+id/layoutSave"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal">
+
+                <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="磁场校准"
+                    android:id="@+id/btnMagCali"
+                    android:textSize="12sp"
+                    android:onClick="onClickMagCali" />
+
+                <Space android:layout_width="5dp"
+                    android:layout_height="wrap_content"/>
+                <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="保存"
+                    android:id="@+id/btnSave"
+                    android:textSize="12sp"
+                    android:onClick="onClickSave" />
+                <Space android:layout_width="5dp"
+                    android:layout_height="wrap_content"/>
+                <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="恢复"
+                    android:id="@+id/btnReset"
+                    android:textSize="12sp"
+                    android:onClick="onClickReset" />
+
+                <Button
+                    android:id="@+id/btrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:text="更改速率"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/step_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_toEndOf="@+id/reset_btn"
+                    android:gravity="center"
+                    android:text="1000"
+                    android:textSize="20sp"/>
+
+                <Button
+                    android:id="@+id/reset_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/step_tv"
+                    android:text="重置"
+                    android:textSize="8sp"/>
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fangxiang"
+                    android:layout_marginEnd="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.baidu.mapapi.map.MapView
+                    android:id="@+id/map_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"/>
+            <RelativeLayout
+                android:id="@+id/relat4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp">
+
+                    <EditText
+                        android:id="@+id/Etsearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:hint="搜索桥梁、地点"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/Iv_plan_down"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/ic_menu_more"/>
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/relat4_search"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/relativeLayout"
+                    android:layout_toRightOf="@+id/relativeLayout"
+                    android:background="@drawable/ic_menu_search"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relat1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="relat1_click"
+                    android:visibility="visible"
+                    android:background="@drawable/ic_menu_home"
+                    android:layout_above="@+id/relat2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true">
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relat2"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:visibility="visible"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="#fff">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/update"
+                        android:background="@drawable/ic_menu_set_as"
+                        />
+                    <ImageView
+                        android:id="@+id/search"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_menu_search"
+                        android:onClick="search_onclick"
+                        android:layout_alignParentStart="true"
+                        android:layout_above="@+id/search_list"
+                        android:layout_below="@+id/update"/>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_menu_find"
+                        android:id="@+id/search_list"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"/>
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:id="@+id/iv_disease"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+            <ExpandableListView android:id="@+id/gatt_services_list"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:visibility="invisible"/>
+        </LinearLayout>
+    <!--</ScrollView>-->
+</LinearLayout>
